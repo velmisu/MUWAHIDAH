@@ -30,9 +30,20 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
+        <div class="header-actions">
+            <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 1.9-1.4L20 8H7" />
+                    <circle cx="10" cy="20" r="1" />
+                    <circle cx="17" cy="20" r="1" />
+                </svg>
+                <span id="cartCount">0</span>
+            </button>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                ☰
+            </button>
+        </div>
 
     </header>
 
@@ -49,8 +60,6 @@
         <a href="#contact">Contact</a>
 
     </div>
-
-
     <!-- HERO -->
     <section class="hero" id="home">
 
@@ -140,13 +149,23 @@
 
                 </div>
 
+                <label class="size-picker">
+                    <span>SELECT SIZE</span>
+                    <select class="product-size" aria-label="Select size for Classic Black Abaya">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </label>
+
                 <button
-                    class="whatsapp-btn"
-                    onclick="orderProduct('Classic Black Abaya', '450 DH')">
-
-                    ORDER VIA WHATSAPP
-
-                </button>
+                class="whatsapp-btn"
+                onclick="addToCart('Classic Black Abaya', 450, this.closest('.product').querySelector('.product-size').value)">
+            
+                ADD TO CART
+            
+            </button>
 
             </article>
 
@@ -173,13 +192,23 @@
 
                 </div>
 
+                <label class="size-picker">
+                    <span>SELECT SIZE</span>
+                    <select class="product-size" aria-label="Select size for Soft Beige Abaya">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </label>
+
                 <button
-                    class="whatsapp-btn"
-                    onclick="orderProduct('Soft Beige Abaya', '480 DH')">
-
-                    ORDER VIA WHATSAPP
-
-                </button>
+                class="whatsapp-btn"
+                onclick="addToCart('Soft Beige Abaya', 480, this.closest('.product').querySelector('.product-size').value)">
+            
+                ADD TO CART
+            
+            </button>
 
             </article>
 
@@ -206,13 +235,23 @@
 
                 </div>
 
+                <label class="size-picker">
+                    <span>SELECT SIZE</span>
+                    <select class="product-size" aria-label="Select size for Everyday Abaya">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </label>
+
                 <button
-                    class="whatsapp-btn"
-                    onclick="orderProduct('Everyday Abaya', '420 DH')">
-
-                    ORDER VIA WHATSAPP
-
-                </button>
+                class="whatsapp-btn"
+                onclick="addToCart('Everyday Abaya', 420, this.closest('.product').querySelector('.product-size').value)">
+            
+                ADD TO CART
+            
+            </button>
 
             </article>
 
@@ -239,13 +278,23 @@
 
                 </div>
 
+                <label class="size-picker">
+                    <span>SELECT SIZE</span>
+                    <select class="product-size" aria-label="Select size for Signature Abaya">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </label>
+
                 <button
-                    class="whatsapp-btn"
-                    onclick="orderProduct('Signature Abaya', '520 DH')">
-
-                    ORDER VIA WHATSAPP
-
-                </button>
+                class="whatsapp-btn"
+                onclick="addToCart('Signature Abaya', 520, this.closest('.product').querySelector('.product-size').value)">
+            
+                ADD TO CART
+            
+            </button>
 
             </article>
 
@@ -258,8 +307,8 @@
     <section class="brand-section" id="about">
 
         <div class="brand-image">
-            <img src="Design Image 8.PNG" alt="your Brand logo"
-            </div>
+            <img src="Design Image 8.PNG" alt="Muwahidah logo">
+        </div>
         </div>
 
         <div class="brand-text">
@@ -354,7 +403,7 @@
         </p>
 
         <a
-            href="https://wa.me/212652527938"
+            href="https://wa.me/212650527938"
             target="_blank"
             class="whatsapp-main">
 
@@ -368,9 +417,9 @@
     <!-- FOOTER -->
     <footer>
 
-        <div class="footer-logo">
-            YOUR BRAND
-        </div>
+        <a href="#home" class="footer-logo" aria-label="Muwahidah home">
+            <img src="Design Image 7.PNG" alt="Muwahidah">
+        </a>
 
         <div class="footer-links">
 
@@ -390,7 +439,7 @@
 
     <!-- FLOATING WHATSAPP -->
     <a
-        href="https://wa.me/212652527938"
+        href="https://wa.me/212650527938"
         target="_blank"
         class="floating-whatsapp">
 
@@ -398,7 +447,51 @@
         <i class="arrow"></i>
 
     </a>
+    <div class="cart-overlay" id="cartOverlay">
 
+        <div class="cart">
+    
+            <button class="cart-close" id="cartClose">×</button>
+    
+            <p class="small-title">YOUR SELECTION</p>
+    
+            <h2>Your Cart</h2>
+    
+            <div id="cartItems"></div>
+    
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cartTotal">0 DH</strong>
+            </div>
+    
+            <button class="checkout-btn" id="checkoutBtn" type="button">
+                CONTINUE TO ORDER
+            </button>
+
+            <form class="order-form" id="orderForm" hidden>
+                <p class="small-title">YOUR DETAILS</p>
+                <h3>Complete your order</h3>
+
+                <label for="customerName">Full name</label>
+                <input id="customerName" name="name" type="text" autocomplete="name" required>
+
+                <label for="customerPhone">Phone number</label>
+                <input id="customerPhone" name="phone" type="tel" autocomplete="tel" required>
+
+                <label for="customerCity">City</label>
+                <input id="customerCity" name="city" type="text" autocomplete="address-level2" required>
+
+                <label for="customerAddress">Address</label>
+                <textarea id="customerAddress" name="address" autocomplete="street-address" required></textarea>
+
+                <button class="confirm-order-btn" type="submit">
+                    CONFIRM ON WHATSAPP
+                </button>
+            </form>
+    
+        </div>
+    
+    </div>
 
     <script src="script.js"></script>
 

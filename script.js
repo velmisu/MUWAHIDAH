@@ -4,7 +4,7 @@
 
 function orderProduct(productName, price) {
 
-    const phone = "212652527938";
+    const phone = "212650527938";
 
     const message =
         `Hello, I would like to order:\n\n` +
@@ -124,3 +124,195 @@ elements.forEach(function(element) {
     observer.observe(element);
 
 });
+let cart = [];
+
+function addToCart(name, price, size) {
+
+    const existingProduct =
+        cart.find(item => item.name === name && item.size === size);
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    } else {
+
+        cart.push({
+            name: name,
+            price: price,
+            size: size,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+}
+
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+        count += item.quantity;
+
+        cartItems.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-item-info">
+
+                    <h3>${item.name}</h3>
+
+                    <p>
+                        Size: ${item.size} · ${item.price} DH × ${item.quantity}
+                    </p>
+
+                </div>
+
+                <button
+                    class="remove-item"
+                    onclick="removeFromCart(${index})">
+
+                    REMOVE
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+    cartCount.textContent = count;
+
+    cartTotal.textContent =
+        total + " DH";
+}
+
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+
+function startCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+    document.getElementById("orderForm").hidden = false;
+    document.getElementById("checkoutBtn").hidden = true;
+    document.getElementById("customerName").focus();
+}
+
+
+function checkoutWhatsApp(event) {
+
+    event.preventDefault();
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+    const form = document.getElementById("orderForm");
+
+    if (!form.checkValidity()) {
+
+        form.reportValidity();
+
+        return;
+    }
+
+    const customer = new FormData(form);
+
+    let message =
+        "Hello, I would like to place an order:\n\n" +
+        `Name: ${customer.get("name")}\n` +
+        `Phone: ${customer.get("phone")}\n` +
+        `City: ${customer.get("city")}\n` +
+        `Address: ${customer.get("address")}\n\n` +
+        "Order:\n";
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        message +=
+            `• ${item.name} (Size ${item.size}) — ${item.quantity} × ${item.price} DH\n`;
+
+        total += item.price * item.quantity;
+
+    });
+
+    message +=
+        `\nTotal: ${total} DH`;
+
+    const phone = "212650527938";
+
+    const url =
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+}
+
+
+document
+    .getElementById("cartBtn")
+    .addEventListener("click", function() {
+
+        document
+            .getElementById("cartOverlay")
+            .classList.add("active");
+
+    });
+
+
+document
+    .getElementById("checkoutBtn")
+    .addEventListener("click", startCheckout);
+
+
+document
+    .getElementById("orderForm")
+    .addEventListener("submit", checkoutWhatsApp);
+
+
+document
+    .getElementById("cartClose")
+    .addEventListener("click", function() {
+
+        document
+            .getElementById("cartOverlay")
+            .classList.remove("active");
+
+    });

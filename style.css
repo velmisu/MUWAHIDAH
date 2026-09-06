@@ -39,18 +39,32 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    transform: translateX(-140px);
+    width: 190px;
+    height: 62px;
+    overflow: hidden;
+    position: relative;
 }
 
 .logo img {
-    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 410px;
+    max-width: none;
     height: auto;
     display: block;
+    transform: translate(-50%, -50%);
 }
 
 .nav {
     display: flex;
     gap: 35px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .nav a {
@@ -127,6 +141,17 @@ body {
     border: none;
 
     font-size: 35px;
+}
+@media (max-width: 768px) {
+
+    .cart-btn {
+        margin: 0;
+    }
+
+    .cart {
+        padding: 55px 25px;
+    }
+
 }
 
 
@@ -376,6 +401,28 @@ body {
     font-weight: 500;
 }
 
+.size-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+}
+
+.product-size {
+    min-width: 92px;
+    padding: 9px 28px 9px 11px;
+    border: 1px solid #cfcac2;
+    border-radius: 0;
+    background: #f7f5f1;
+    color: #111;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
 .whatsapp-btn {
     width: 100%;
 
@@ -416,18 +463,17 @@ body {
     background: #ddd9d1;
 
     display: flex;
-
     align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .brand-image img {
-    width: 700px;
+    width: 780px;
     height: auto;
 
     object-fit: contain;
     display: block;
-    transform: translateX(-110px);
 }    
 
 .large-placeholder {
@@ -631,11 +677,21 @@ footer {
 }
 
 .footer-logo {
-    font-size: 18px;
+    display: block;
+    position: relative;
+    width: 185px;
+    height: 58px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+}
 
-    letter-spacing: 5px;
-
-    margin-bottom: 30px;
+.footer-logo img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    max-width: none;
+    transform: translate(-50%, -50%);
 }
 
 .footer-links {
@@ -726,8 +782,13 @@ footer > p {
         padding: 0 6%;
     }
 
+    .logo {
+        width: 140px;
+        height: 48px;
+    }
+
     .logo img {
-        width: 400px;
+        width: 310px;
     }
 
     .nav {
@@ -821,4 +882,267 @@ footer > p {
         display: none;
     }
 
+}
+/* ================= CART ================= */
+
+.cart-btn {
+    position: relative;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    margin: 0;
+}
+
+.cart-btn svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cart-btn span {
+    position: absolute;
+
+    top: -8px;
+    right: -10px;
+
+    width: 17px;
+    height: 17px;
+
+    background: white;
+    color: #111;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 3000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: min(430px, 100%);
+
+    height: 100%;
+
+    background: #f7f5f1;
+
+    padding: 60px 35px;
+
+    overflow-y: auto;
+
+    transform: translateX(100%);
+
+    transition: 0.4s;
+}
+
+.cart-overlay.active .cart {
+    transform: translateX(0);
+}
+
+.cart-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.cart h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    margin-bottom: 35px;
+}
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item-info h3 {
+    font-size: 14px;
+
+    font-weight: 500;
+
+    margin-bottom: 5px;
+}
+
+.cart-item-info p {
+    font-size: 12px;
+
+    color: #777;
+}
+
+.remove-item {
+    border: none;
+
+    background: none;
+
+    color: #999;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+.cart-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #ccc;
+
+    font-size: 14px;
+}
+
+.checkout-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 17px;
+
+    border: none;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.order-form {
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top: 1px solid #ccc;
+}
+
+.order-form .small-title {
+    margin-bottom: 10px;
+}
+
+.order-form h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.order-form label {
+    display: block;
+    margin: 16px 0 7px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.order-form input,
+.order-form textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: 0;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0;
+    background: transparent;
+    color: #111;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.order-form textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+    border-bottom-color: #111;
+}
+
+.confirm-order-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+    border: 1px solid #111;
+    background: transparent;
+    color: #111;
+    cursor: pointer;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        gap: 16px;
+    }
+
+    .footer-logo {
+        width: 155px;
+        height: 50px;
+    }
+
+    .footer-logo img {
+        width: 335px;
+    }
 }
