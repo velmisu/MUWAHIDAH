@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YOUR BRAND | Modest Wear</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="#" class="logo">YOUR BRAND</a>
+
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#collection">Collection</a>
+            <a href="#about">About</a>
+            <a href="#size">Size Guide</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+
+        <button class="close-menu" id="closeMenu">×</button>
+
+        <a href="#home">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#size">Size Guide</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">MODEST WEAR • MOROCCO</p>
+
+            <h1>
+                Elegance in<br>
+                <span>Every Detail.</span>
+            </h1>
+
+            <p class="hero-text">
+                Timeless abayas designed for women who love
+                simplicity, elegance and modesty.
+            </p>
+
+            <a href="#collection" class="main-btn">
+                DISCOVER COLLECTION
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="intro">
+
+        <p class="small-title">OUR PHILOSOPHY</p>
+
+        <h2>
+            Simple. Modest.<br>
+            <span>Beautiful.</span>
+        </h2>
+
+        <p>
+            We create carefully designed pieces that combine
+            comfort, modesty and timeless elegance.
+        </p>
+
+    </section>
+
+
+    <!-- COLLECTION -->
+    <section class="collection" id="collection">
+
+        <div class="section-heading">
+
+            <div>
+                <p class="small-title">OUR COLLECTION</p>
+                <h2>New Arrivals</h2>
+            </div>
+
+            <p>
+                Discover our latest pieces,
+                designed with simplicity in mind.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+            <article class="product">
+
+                <div class="product-image">
+
+                    <div class="placeholder">
+                        <span>IMAGE</span>
+                    </div>
+
+                    <div class="new">NEW</div>
+
+                </div>
+
+                <div class="product-info">
+
+                    <div>
+                        <h3>Classic Black Abaya</h3>
+                        <p>Elegant • Minimal • Timeless</p>
+                    </div>
+
+                    <strong>450 DH</strong>
+
+                </div>
+
+                <button
+                    class="whatsapp-btn"
+                    onclick="orderProduct('Classic Black Abaya', '450 DH')">
+
+                    ORDER VIA WHATSAPP
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="product">
+
+                <div class="product-image">
+
+                    <div class="placeholder">
+                        <span>IMAGE</span>
+                    </div>
+
+                </div>
+
+                <div class="product-info">
+
+                    <div>
+                        <h3>Soft Beige Abaya</h3>
+                        <p>Soft • Elegant • Comfortable</p>
+                    </div>
+
+                    <strong>480 DH</strong>
+
+                </div>
+
+                <button
+                    class="whatsapp-btn"
+                    onclick="orderProduct('Soft Beige Abaya', '480 DH')">
+
+                    ORDER VIA WHATSAPP
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="product">
+
+                <div class="product-image">
+
+                    <div class="placeholder">
+                        <span>IMAGE</span>
+                    </div>
+
+                </div>
+
+                <div class="product-info">
+
+                    <div>
+                        <h3>Everyday Abaya</h3>
+                        <p>Comfortable • Simple • Chic</p>
+                    </div>
+
+                    <strong>420 DH</strong>
+
+                </div>
+
+                <button
+                    class="whatsapp-btn"
+                    onclick="orderProduct('Everyday Abaya', '420 DH')">
+
+                    ORDER VIA WHATSAPP
+
+                </button>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="product">
+
+                <div class="product-image">
+
+                    <div class="placeholder">
+                        <span>IMAGE</span>
+                    </div>
+
+                </div>
+
+                <div class="product-info">
+
+                    <div>
+                        <h3>Signature Abaya</h3>
+                        <p>Premium • Elegant • Refined</p>
+                    </div>
+
+                    <strong>520 DH</strong>
+
+                </div>
+
+                <button
+                    class="whatsapp-btn"
+                    onclick="orderProduct('Signature Abaya', '520 DH')">
+
+                    ORDER VIA WHATSAPP
+
+                </button>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- BRAND SECTION -->
+    <section class="brand-section" id="about">
+
+        <div class="brand-image">
+            <div class="large-placeholder">
+                YOUR BRAND
+            </div>
+        </div>
+
+        <div class="brand-text">
+
+            <p class="small-title">ABOUT THE BRAND</p>
+
+            <h2>
+                Modesty is<br>
+                <span>an elegance.</span>
+            </h2>
+
+            <p>
+                Our vision is simple: to create modest clothing
+                that feels beautiful, comfortable and effortless.
+            </p>
+
+            <p>
+                Every piece is thoughtfully selected and designed
+                to become a timeless part of your wardrobe.
+            </p>
+
+            <a href="#collection" class="outline-btn">
+                SHOP COLLECTION
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIZE GUIDE -->
+    <section class="size-section" id="size">
+
+        <p class="small-title">FIND YOUR FIT</p>
+
+        <h2>Size Guide</h2>
+
+        <p class="size-description">
+            Choose the size that feels most comfortable for you.
+        </p>
+
+        <div class="size-table">
+
+            <div class="size-row header-row">
+                <span>SIZE</span>
+                <span>LENGTH</span>
+                <span>CHEST</span>
+            </div>
+
+            <div class="size-row">
+                <span>S</span>
+                <span>140 CM</span>
+                <span>52 CM</span>
+            </div>
+
+            <div class="size-row">
+                <span>M</span>
+                <span>142 CM</span>
+                <span>54 CM</span>
+            </div>
+
+            <div class="size-row">
+                <span>L</span>
+                <span>144 CM</span>
+                <span>56 CM</span>
+            </div>
+
+            <div class="size-row">
+                <span>XL</span>
+                <span>146 CM</span>
+                <span>58 CM</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <p class="small-title">GET IN TOUCH</p>
+
+        <h2>
+            Your next abaya<br>
+            <span>is waiting for you.</span>
+        </h2>
+
+        <p>
+            For orders, questions or custom requests,
+            contact us directly on WhatsApp.
+        </p>
+
+        <a
+            href="https://wa.me/212652527938"
+            target="_blank"
+            class="whatsapp-main">
+
+            CHAT WITH US ON WHATSAPP
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            YOUR BRAND
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+            <a href="#collection">Collection</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <p>
+            © 2026 YOUR BRAND. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- FLOATING WHATSAPP -->
+    <a
+        href="https://wa.me/212652527938"
+        target="_blank"
+        class="floating-whatsapp">
+
+        <span>WhatsApp</span>
+        <b>↗</b>
+
+    </a>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
