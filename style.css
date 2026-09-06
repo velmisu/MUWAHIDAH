@@ -418,8 +418,17 @@ body {
     display: flex;
 
     align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
+
+.brand-image img {
+    width: 700px;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+    transform: translateX(-110px);
+}    
 
 .large-placeholder {
     font-family: "Playfair Display", serif;
