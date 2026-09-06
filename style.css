@@ -1,0 +1,797 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f7f5f1;
+    color: #111;
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    height: 85px;
+    background: #050505;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    opacity: 0.5;
+}
+
+.menu-btn {
+    display: none;
+
+    background: none;
+    border: none;
+    color: white;
+
+    font-size: 25px;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu {
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #050505;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    transition: 0.4s;
+
+    z-index: 2000;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.close-menu {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color: white;
+    background: none;
+    border: none;
+
+    font-size: 35px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.45)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 8%;
+
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    font-style: italic;
+}
+
+.hero-text {
+    max-width: 430px;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin-bottom: 40px;
+}
+
+.main-btn {
+    display: inline-block;
+
+    background: white;
+    color: #111;
+
+    padding: 17px 30px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* ================= INTRO ================= */
+
+.intro {
+    text-align: center;
+
+    padding: 130px 20px;
+}
+
+.intro h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.intro h2 span {
+    font-style: italic;
+}
+
+.intro > p:last-child {
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+/* ================= COLLECTION ================= */
+
+.collection {
+    padding: 100px 6%;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+}
+
+.section-heading > p {
+    max-width: 300px;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+.products {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 55px 25px;
+}
+
+.product-image {
+    height: 600px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #e8e5df;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dedbd5,
+            #f3f0ea
+        );
+
+    color: #999;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    transition: 0.6s;
+}
+
+.product:hover .placeholder {
+    transform: scale(1.03);
+}
+
+.new {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    background: #111;
+    color: white;
+
+    padding: 9px 13px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.product-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: start;
+
+    padding: 20px 0 15px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+
+    font-weight: 500;
+
+    margin-bottom: 7px;
+}
+
+.product-info p {
+    color: #777;
+
+    font-size: 12px;
+}
+
+.product-info strong {
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.whatsapp-btn {
+    width: 100%;
+
+    background: #111;
+    color: white;
+
+    border: none;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #333;
+}
+
+
+/* ================= BRAND ================= */
+
+.brand-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    margin-top: 100px;
+}
+
+.brand-image {
+    min-height: 700px;
+
+    background: #ddd9d1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.large-placeholder {
+    font-family: "Playfair Display", serif;
+
+    font-size: 45px;
+
+    color: #aaa;
+}
+
+.brand-text {
+    background: #111;
+
+    color: white;
+
+    padding: 100px 12%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+.brand-text h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 60px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 35px;
+}
+
+.brand-text h2 span {
+    font-style: italic;
+}
+
+.brand-text > p:not(.small-title) {
+    color: #bbb;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+    max-width: 450px;
+}
+
+.outline-btn {
+    margin-top: 20px;
+
+    border: 1px solid white;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 15px 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.outline-btn:hover {
+    background: white;
+    color: #111;
+}
+
+
+/* ================= SIZE ================= */
+
+.size-section {
+    padding: 130px 8%;
+
+    text-align: center;
+}
+
+.size-section h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 60px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+.size-description {
+    color: #777;
+
+    margin-bottom: 50px;
+}
+
+.size-table {
+    max-width: 800px;
+
+    margin: auto;
+
+    border-top: 1px solid #ccc;
+}
+
+.size-row {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 20px;
+
+    border-bottom: 1px solid #ccc;
+
+    font-size: 12px;
+}
+
+.header-row {
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+    background: #e9e5de;
+
+    padding: 130px 20px;
+
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px, 6vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.contact h2 span {
+    font-style: italic;
+}
+
+.contact > p:not(.small-title) {
+    max-width: 450px;
+
+    margin: 0 auto 35px;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+.whatsapp-main {
+    display: inline-block;
+
+    background: #111;
+
+    color: white;
+
+    padding: 18px 30px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.whatsapp-main:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #050505;
+
+    color: white;
+
+    padding: 70px 6% 35px;
+
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.footer-links a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 11px;
+}
+
+footer > p {
+    color: #555;
+
+    font-size: 10px;
+}
+
+
+/* ================= FLOATING WHATSAPP ================= */
+
+.floating-whatsapp {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 13px 17px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+
+    z-index: 900;
+}
+
+.floating-whatsapp b {
+    font-size: 15px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: 70px;
+
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: 90vh;
+
+        padding: 120px 7% 70px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .intro {
+        padding: 90px 25px;
+    }
+
+    .intro h2 {
+        font-size: 48px;
+    }
+
+    .collection {
+        padding: 70px 5%;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading h2 {
+        font-size: 45px;
+
+        margin-bottom: 20px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .product-image {
+        height: 520px;
+    }
+
+    .brand-section {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-image {
+        min-height: 450px;
+    }
+
+    .brand-text {
+        padding: 80px 8%;
+    }
+
+    .brand-text h2 {
+        font-size: 48px;
+    }
+
+    .size-section {
+        padding: 90px 6%;
+    }
+
+    .size-section h2 {
+        font-size: 48px;
+    }
+
+    .size-row {
+        padding: 18px 8px;
+    }
+
+    .contact {
+        padding: 90px 25px;
+    }
+
+    .floating-whatsapp {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .floating-whatsapp span {
+        display: none;
+    }
+
+}
